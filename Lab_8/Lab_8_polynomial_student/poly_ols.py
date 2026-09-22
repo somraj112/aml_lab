@@ -29,5 +29,9 @@ def predict_multiple_lr(X, beta):
 
 def polynomial_features(X, degree):
     """Create [1, X, X², ..., X^degree] using X."""
-    
-    #return X
+    # Ensure X is a 2D column array if passed as 1D
+    if X.ndim == 1:
+        X = X.reshape(-1, 1)
+        
+    X_poly = np.hstack([X**i for i in range(degree + 1)])
+    return X_poly
