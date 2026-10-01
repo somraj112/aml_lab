@@ -61,18 +61,18 @@ def fit_polynomial_model(x, y, degree, x_minimum=None, x_maximum=None):
     # include_bias=False means we do NOT add an extra column of 1s
     # for the intercept term, because LinearRegression() already handles
     # the intercept automatically.
-    polynomial = PolynomialFeatures(degree=degree, include_bias=False)
+    
     
     # Transform the scaled input features into polynomial features.
     # For example, if degree=2 and x = [x]:
     # [x] becomes [x, x²]
     # If degree=3:
     # [x] becomes [x, x², x³]
-    x_polynomial = polynomial.fit_transform(x_scaled)
+    x_polynomial = 
     
     # Create a Linear Regression model.
     # Linear Regression will learn the coefficients for the polynomial features.
-    regression = LinearRegression()
+    regression = 
     
     # Train the regression model using the polynomial features and target values.
     
@@ -107,24 +107,19 @@ def load_academic_data(file_path):
 def split_regression_data(data, seed=42):
     """Make a 60% training, 20% validation, and 20% test split."""
     # TODO: Extract the input feature (Study_Hours) and target variable (Exam_Score) as NumPy arrays
-    x = data["Study_Hours"].values
-    y = data["Exam_Score"].values
+
 
 
     # TODO: Split the data into 80% development data and 20% test data
     # The test set is kept completely separate for final model evaluation
 
-    x_dev, x_test, y_dev, y_test = train_test_split(
-            x, y, test_size=0.20, random_state=seed
-        )
+
     
     # Further split the 80% development data into:
     # 60% training data and 20% validation data
     # Training data is used to train the model, while validation data is used
     # to tune/select the model before evaluating it on the unseen test data
-    x_train, x_validation, y_train, y_validation = train_test_split(
-        x_dev, y_dev, test_size=0.25, random_state=seed
-    )
+
     
     return {
         "x_train": x_train,
